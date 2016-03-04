@@ -1,6 +1,6 @@
 <h1>Create a new card for <%= @deck.subject %></h1>
 
-<form action=<% "/decks/#{@deck.id}/cards" %>method="post">
+<form action="/decks/<%= @deck.id %>/cards" method="post">
   <input type="text" name="card[question]" placeholder="Question">
   <input type="text" name="card[answer]" placeholder="Answer">
   <input type="submit" name="commit" value="Next Card">
