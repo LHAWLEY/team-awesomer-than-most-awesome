@@ -1,7 +1,5 @@
-get '/deck/:deck_id/cards/new' do
-
+get '/decks/:deck_id/cards/new' do
   @deck = Deck.find(params[:deck_id])
-
   erb :'cards/new'
 end
 

@@ -20,7 +20,7 @@ post '/decks' do
   @deck = Deck.new(subject: params[:subject], creator_id: 1) #create new deck
 
   if @deck.save #saves new deck or returns false if unsuccessful
-    redirect '/decks/:deck_id/cards/new' #links back to decks index page
+    redirect "/decks/#{@deck.id}/cards/new" #links back to decks index page
   else
     erb :errors #shows an errors view you define
   end
