@@ -59,3 +59,14 @@ put '/decks/:id' do
   end
 
 end
+
+delete '/decks/:id' do
+
+  #get params from url
+  @deck = Deck.find(params[:id]) #define deck to delete
+
+  @deck.destroy #delete deck
+
+  redirect '/decks' #redirects back to decks index page
+
+end
