@@ -35,3 +35,27 @@ get '/decks/:deck_id/cards' do
   erb :'cards/show'
 
 end
+
+get '/decks/:id/edit' do
+
+  #get params from url
+  @deck = Deck.find(params[:id]) #define intstance variable for view
+
+  erb :'decks/edit' #shows view with edit deck form
+
+end
+
+put '/decks/:id' do
+
+  #get params from url
+  @deck = Deck.find(params[:id]) #define variable to edit
+
+  @deck.assign_attributes(subject: params[:subject]) #assign new attributes
+
+  if @deck.save #saves new deck or returns false if unsuccessful
+    redirect '/decks' #links back to decks index page
+  else
+    erb :errors #shows an errors view you define
+  end
+
+end

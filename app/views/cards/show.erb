@@ -4,5 +4,12 @@
 </h1>
 
 <% @deck.cards.each do |card| %>
-  <%= card.question %><br>
+Question: <%= card.question %><br>
+Answer: <%= card.answer %><br>
+<a href="/decks/<%= @deck.id %>/cards/<%= card.id %>/edit">edit</a>
+<form action="/decks/<%= @deck.id %>/cards/<%= card.id %>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete">
+</form>
+
 <% end %>

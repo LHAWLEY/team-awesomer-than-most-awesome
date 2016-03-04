@@ -40,3 +40,39 @@ post '/decks/:deck_id/cards' do
   end
 
 end
+
+get '/decks/:deck_id/cards/:id/edit' do
+
+  @deck = Deck.find(params[:deck_id])
+
+  @card = @deck.cards.find(params[:id])
+
+  erb :'cards/edit'
+
+end
+
+put '/decks/:deck_id/cards/:id' do
+
+  @deck = Deck.find(params[:deck_id])
+
+  @card = @deck.cards.find(params[:id])
+
+  if @card.update_attributes(params[:card])
+    redirect "/decks/#{@deck.id}/cards"
+  else
+    erb :'cards/edit'
+  end
+
+end
+
+delete '/decks/:deck_id/cards/:id' do
+
+  @deck = Deck.find(params[:deck_id])
+
+  @card = @deck.cards.find(params[:id])
+
+  @card.destroy
+
+  redirect "/decks/#{@deck.id}/cards"
+
+end
