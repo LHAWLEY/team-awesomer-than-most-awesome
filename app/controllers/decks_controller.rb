@@ -32,6 +32,6 @@ get '/decks/:deck_id/cards' do
 
   @cards = @deck.cards
 
-  erb :'cards/index'
+  erb :'cards/show'
 
 end

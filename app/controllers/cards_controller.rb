@@ -33,7 +33,7 @@ post '/decks/:deck_id/cards' do
     if params[:commit] == "Next Card"
       redirect "/decks/#{@deck.id}/cards/new"
     else
-      redirect "/decks/#{@deck.id}/cards/:id"
+      erb :'cards/show'
     end
   else
     erb :'cards/new'
