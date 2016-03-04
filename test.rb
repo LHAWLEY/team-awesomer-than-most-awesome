@@ -1,0 +1,2 @@
+puts $APP_ROOT
+
