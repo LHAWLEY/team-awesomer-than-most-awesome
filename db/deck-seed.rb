@@ -1,12 +1,11 @@
-# require-relative './deck-seed'
-
-# include DeckSeed
-
-
+module DeckSeed
 
   3.times do
-    deck = Deck.create!(subject: Faker::Name.name, creator_id: 1)
+    deck = Deck.create!(subject: Faker::Book.genre, creator_id: 1)
 
     deck.cards.create!(answer: "a", question: "a just so its easy for us")
     deck.cards.create!(answer: "b", question: "b just so its easy for us")
   end
+
+
+end

@@ -1,0 +1,9 @@
+<h1>
+  YOU'RE NOW VIEWING DECK: <%= @deck.subject %><br><br>
+  Here are all of the cards:<br>
+</h1>
+
+<% @cards.each do |card| %>
+  <%= card.question %><br>
+
+<% end %>
