@@ -1,0 +1,62 @@
+#header {
+  position: relative;
+  height: 150px;
+  width: 100%;
+}
+
+#headertop {
+  position: relative;
+  height: 60px;
+  width: 100%;
+  background-color: #0000BB;
+}
+
+#logo {
+  height: 45px;
+  color: #FFFFFF;
+  font-size: 2em;
+  position: relative;
+  font-family: verdana;
+  left: 100px;
+  top: 10px;
+  font-weight: bold;
+}
+
+#nav {
+  position: relative;
+  float: right;
+  padding: 0px 20px 0px 20px;
+  top: -45px;
+  display: inline-block;
+  color: #FFFFFF;
+}
+
+#navul {
+  position: relative;
+  right: 15px;
+  display: inline-block;
+}
+
+.linav {
+  position: relative;
+  display: inline-block;
+  color: #FFFFFF;
+}
+
+li:before {
+  content: "|";
+  padding-right: 5px;
+  font-size: 1.5em;
+  color: #DDDDDD;
+  vertical-align: middle;
+}
+
+#loginstatus {
+  position: relative;
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color: #7777BB;
+  border-radius: 10px;
+  padding: 5px 8px 5px 8px;
+
+}

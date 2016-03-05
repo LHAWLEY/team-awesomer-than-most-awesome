@@ -1,6 +1,6 @@
 module DeckSeed
 
-  3.times do
+  6.times do
     deck = Deck.create!(subject: Faker::Name.name, creator_id: 1)
 
     deck.cards.create!(answer: "a", question: "a just so its easy for us")

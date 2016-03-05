@@ -1,2 +1,24 @@
-<%= yield =>
+<html>
+  <head>
+    <title>Flashcards!</title>
+    <link rel="stylesheet" href="/css/default.css">
+  </head>
 
+  <body>
+    <div id="header">
+      <div id="headertop">
+        <div id="logo">FLASHCARDS</div>
+        <div id="nav">
+          <ul id="navul">
+            Sign In
+            <li class="linav">Register</li>
+          </ul>
+          <span id="loginstatus">Not Logged In</span>
+        </div>
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
+</html>
