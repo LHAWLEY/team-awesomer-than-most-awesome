@@ -10,10 +10,17 @@
         <div id="logo">FLASHCARDS</div>
         <div id="nav">
           <ul id="navul">
-            Sign In
-            <li class="linav">Register</li>
+          <% if current_user %>
+            <li class="linav"><a href="/">Home</a></li>
+            <li class="linav"><a href="/logout">Logout</a></li>
+          <% else %>
+            <li class="linav"><a href="/">Home</a></li>
+            <li class="linav"><a href="/login">Sign In</a></li>
+            <li class="linav"><a href="/users/new">Register</a></li>
+          <% end%>
           </ul>
-          <span id="loginstatus">Not Logged In</span>
+
+
         </div>
       </div>
     </div>

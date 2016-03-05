@@ -35,6 +35,7 @@ get '/login' do
 end
 
 post '/login' do
+  puts "*********************** post login********\n\n\n\n"
   @user = User.find_by(username: params[:username]) unless !params[:username]
   redirect '/users/login' if !@user
   if @user.authenticate(params)
