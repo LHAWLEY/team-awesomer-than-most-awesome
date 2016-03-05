@@ -1,7 +1,6 @@
 get '/decks' do
 
   @deck = Deck.all #define instance variable for view
-  puts "Hello\n\n\n"
   erb :'decks/index' #shows all deck view (index)
 
 end
@@ -17,7 +16,7 @@ end
 post '/decks' do
 
   #below works with properly formatted params in HTML form
-  @deck = Deck.new(subject: params[:subject], creator_id: 1) #create new deck
+  @deck = Deck.new(subject: params[:subject], creator_id: session[:user_id]) #create new deck
 
   if @deck.save #saves new deck or returns false if unsuccessful
     redirect "/decks/#{@deck.id}/cards/new" #links back to decks index page

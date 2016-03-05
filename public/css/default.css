@@ -43,12 +43,27 @@
   color: #FFFFFF;
 }
 
-li:before {
+.linav li:before {
   content: "|";
   padding-right: 5px;
   font-size: 1.5em;
   color: #DDDDDD;
   vertical-align: middle;
+}
+
+#userli {
+  margin: 0px 20px 0px 0px;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  display: inline-block;
+  color: #FFFFFF;
+  background-color: #AAAAFF;
+}
+
+#userlink {
+  text-decoration: none;
+  font-family: Arial;
 }
 
 #loginstatus {
