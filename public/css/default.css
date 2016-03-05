@@ -60,3 +60,15 @@ li:before {
   padding: 5px 8px 5px 8px;
 
 }
+
+.linav > a:hover {
+    color: #68FF9C;
+}
+
+.linav > a:visited {
+  color: orange;
+}
+
+.linav > a {
+  color: hotpink;
+}
