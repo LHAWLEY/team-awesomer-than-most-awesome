@@ -15,8 +15,6 @@ get '/rounds/:id/firstcard' do
     Guess.create({card_id: card.id, round_id: round.id})
   end
   @guess = get_guess(round)
-  Guess.create({card_id: @guess.card_id, round_id: round.id})
-
   erb :'rounds/showcard'
 end
 
@@ -27,12 +25,20 @@ get '/rounds/:id/showcard' do
 end
 
 post '/round/:id/check_answer' do
-  guess = Guess.find(params[:guess_id])
-  if params[:answer] == guess.card.answer
-    guess.status == true
-    guess.save
-  end
   round = Round.find(params[:id])
+  guess = Guess.find(params[:guess_id])
+
+  if params[:answer] != guess.card.answer
+    Guess.create({card_id: guess.card_id, round_id: round.id})
+  end
+
   @guess = get_guess(round)
-  erb :'rounds/showcard'
+  if @guess == nil
+    @round = round
+
+    erb :'rounds/done'
+  else
+    erb :'rounds/showcard'
+  end
+
 end
