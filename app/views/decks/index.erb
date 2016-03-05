@@ -1,6 +1,6 @@
 <ul>
   <% @deck.each do |deck| %>
-    <li><a href=<%= "/decks/#{ deck.id }/cards" %>><%= deck.subject %></a></li>
+    <li><a href=<%= "/decks/#{ deck.id }/startround" %>><%= deck.subject %></a></li>
     <a href="/decks/<%= deck.id %>/edit">Edit Deck</a>
     <form action="/decks/<%= deck.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
