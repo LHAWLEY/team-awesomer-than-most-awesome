@@ -232,3 +232,23 @@ form {
   top: -25px;
 }
 
+#searchsection {
+  position: relative;
+  width: 30%;
+  float: left;
+}
+
+#createsection {
+  width: 70%;
+}
+
+#createimgmain {
+  height: 60px;
+}
+
+#createdecktop {
+  position: relative;
+  top: -25px;
+  text-decoration: none;
+  font-size: 1.5em;
+}
