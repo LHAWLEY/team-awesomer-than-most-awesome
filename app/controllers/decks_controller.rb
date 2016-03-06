@@ -36,8 +36,6 @@ get '/decks/:deck_id/cards' do
 end
 
 get '/decks/:id/edit' do
-
-  #get params from url
   @deck = Deck.find(params[:id]) #define intstance variable for view
 
   erb :'decks/edit' #shows view with edit deck form
@@ -47,14 +45,23 @@ end
 put '/decks/:id' do
 
   #get params from url
-  @deck = Deck.find(params[:id]) #define variable to edit
+  @deck = Deck.find(params[:id])
 
-  @deck.assign_attributes(subject: params[:subject]) #assign new attributes
+  @deck.assign_attributes(subject: params[:subject])
+  answers = params[:answer]
+  params[:question].each do |k,v|
+    card = Card.find(k.to_i)
+    card.update({question: v, answer: answers[k] })
+  end
 
-  if @deck.save #saves new deck or returns false if unsuccessful
-    redirect '/decks' #links back to decks index page
+  if (params[:newquestion] != "") && (params[:newanswer] != "")
+    Card.create(question: params[:newquestion], answer: params[:newanswer], deck_id: @deck.id)
+  end
+
+  if @deck.save
+    redirect '/decks'
   else
-    erb :errors #shows an errors view you define
+    erb :errors
   end
 
 end
@@ -69,3 +76,5 @@ delete '/decks/:id' do
   redirect '/decks' #redirects back to decks index page
 
 end
+
+

@@ -7,7 +7,7 @@ Guess: <%= @guess.id %><br>
 Question: <%= @guess.card.question %><br>
 Answer: <%= @guess.card.answer %><br>
 
-<form method="post" action="/round/<%= @guess.round_id %>/check_answer">
+<form method="post" action="/rounds/<%= @guess.round_id %>/check_answer">
   <input type="hidden" name="guess_id" value="<%= @guess.id %>">
   <input type="text" name="answer">
   <input type="submit" value="Answer Question">

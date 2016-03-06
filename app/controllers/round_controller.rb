@@ -1,10 +1,10 @@
 get '/decks/:deck_id/startround' do
   if session[:user_id] == nil
     @user = User.create({username: "anonymous"})
-    @round = Round.create({user_id: @user.id, deck_id: params[:deck_id]})
+    @round = Round.create({user_id: 0, deck_id: params[:deck_id]})
     redirect "/rounds/#{@round.id}/firstcard"
   else
-    #for logged in users
+    @round = Round.create({user_id: current_user.id, deck_id: params[:deck_id]})
   end
   erb :'rounds/index'
 end
@@ -24,7 +24,7 @@ get '/rounds/:id/showcard' do
   erb :'rounds/showcard'
 end
 
-post '/round/:id/check_answer' do
+post '/rounds/:id/check_answer' do
   round = Round.find(params[:id])
   guess = Guess.find(params[:guess_id])
 
