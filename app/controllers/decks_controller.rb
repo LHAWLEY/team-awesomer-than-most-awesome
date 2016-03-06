@@ -3,6 +3,11 @@ get '/decks' do
   erb :'decks/index'
 end
 
+post '/decks/search' do
+  @deck = Deck.where("lower(subject) LIKE ?","%#{params[:search].downcase}%")
+  erb :'decks/index'
+end
+
 get '/decksmostplayed' do
   @deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
   erb :'decks/index'

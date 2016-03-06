@@ -1,7 +1,15 @@
 
+<img id="searchimg" src="/images/search.jpg">
+<div id="searchfor"><form method="post" action="/decks/search">
+<input type="text" name="search">
+<input type="submit" value="Search!">
+</form>
+</div>
+
+<br>
 List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newest</a> <br><br><br>
 
-<div id="userleft">
+<div id="decksleft">
 <% @deck[0..(@deck.length/2)].each_with_index do |deck,i| %>
 <%= i + 1%>:
 <a href=<%= "/decks/#{ deck.id }/startround" %>><span id="decktitle"><%= deck.subject %></span></a>
@@ -19,7 +27,7 @@ List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newe
 <% end %>
 </div>
 
-<div id="userright">
+<div id="decksright">
 <% @deck[(@deck.length/2+1)..-1].each_with_index do |deck,i| %>
 <%= i + @deck.length/2 + 2 %>:
 <a href=<%= "/decks/#{ deck.id }/startround" %>><span id="decktitle"><%= deck.subject %></span></a>

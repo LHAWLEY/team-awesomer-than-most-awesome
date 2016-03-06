@@ -207,3 +207,28 @@ form {
 #createdeck {
   text-decoration: underline;
 }
+
+#searchimg {
+  height: 60px;
+  display: inline-block;
+}
+
+#decksleft {
+  position: relative;
+  width: 30%;
+  float: left;
+}
+
+#decksright {
+    position: relative;
+    width: 70%;
+    float: right;
+}
+
+#searchfor {
+  position: relative;
+    display: inline-block;
+
+  top: -25px;
+}
+
