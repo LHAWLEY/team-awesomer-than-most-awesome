@@ -1,5 +1,7 @@
 <h2>Playing <%= @guess.round.deck.subject %> deck!</h2>
 
+Your last answer was incorrect!<br><span id="incorrect">Correct answer was <%= @taco %></span><br><br>
+
 Question: <%= @guess.card.question %><br>
 Answer: <%= @guess.card.answer %><br>
 
@@ -8,4 +10,3 @@ Answer: <%= @guess.card.answer %><br>
   <input type="text" name="answer">
   <input type="submit" value="Answer Question">
 </form>
-
