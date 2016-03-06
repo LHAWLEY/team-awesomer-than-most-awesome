@@ -1,3 +1,7 @@
+body {
+  font-family: Arial;
+}
+
 #header {
   position: relative;
   height: 100px;
@@ -135,13 +139,13 @@ display: inline-block;
 
 #userleft {
   position: relative;
-  width: 48%;
+  width: 50%;
   float: left;
 }
 
 #userright {
     position: relative;
-    width: 48%;
+    width: 50%;
     float: right;
 }
 
@@ -156,4 +160,9 @@ display: inline-block;
 
 #incorrect {
   color: #CC0000;
+}
+
+#deckindexbottom {
+  position: relative;
+  clear: both;
 }

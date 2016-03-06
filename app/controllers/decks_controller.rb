@@ -1,15 +1,20 @@
 get '/decks' do
-
-  @deck = Deck.all #define instance variable for view
-  erb :'decks/index' #shows all deck view (index)
-
+  @deck = Deck.all
+  erb :'decks/index'
 end
 
+get '/decksmostplayed' do
+  @deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
+  erb :'decks/index'
+end
+
+get '/decksnewest' do
+  @deck = Deck.all.sort {|a,b| b.updated_at <=> a.updated_at }
+  erb :'decks/index'
+end
 
 get '/decks/new' do
-
-  erb :'decks/new' #shows view with new deck form
-
+  erb :'decks/new'
 end
 
 

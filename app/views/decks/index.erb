@@ -1,18 +1,44 @@
-<ul>
-  <% @deck.each do |deck| %>
-   <li><a href=<%= "/decks/#{ deck.id }/startround" %>><%= deck.subject %></a></li>
-   <br> Created by: <%= deck.creator.username %><br>
-    <% if current_user && current_user.id == deck.creator_id %>
-    <a href="/decks/<%= deck.id %>/edit">Edit Deck</a>
-      <form action="/decks/<%= deck.id %>" method="post">
-        <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete <%= deck.subject %> Deck">
-      </form>
-    <% end %>
+
+List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newest</a> <br><br><br>
+
+<div id="userleft">
+<% @deck[0..(@deck.length/2)].each_with_index do |deck,i| %>
+<%= i + 1%>:
+<a href=<%= "/decks/#{ deck.id }/startround" %>><%= deck.subject %></a><br>
+ <br><span class="deckcreated">Created by: <%= deck.creator.username %>
+  <br> on <%= shorten_date(deck) %></span>
+ <br><br>
+  <% if current_user && current_user.id == deck.creator_id %>
+  <a href="/decks/<%= deck.id %>/edit">Edit Deck</a>
+    <form action="/decks/<%= deck.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete <%= deck.subject %> Deck">
+    </form>
   <% end %>
-</ul>
+<% end %>
+</div>
+
+<div id="userright">
+<% @deck[(@deck.length/2+1)..-1].each_with_index do |deck,i| %>
+<%= i + @deck.length/2 + 2 %>:
+<a href=<%= "/decks/#{ deck.id }/startround" %>><%= deck.subject %></a><br>
+ <br><span class="deckcreated">Created by: <%= deck.creator.username %>
+  <br> on <%= shorten_date(deck) %></span>
+ <br><br>
+  <% if current_user && current_user.id == deck.creator_id %>
+  <a href="/decks/<%= deck.id %>/edit">Edit Deck</a>
+    <form action="/decks/<%= deck.id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete <%= deck.subject %> Deck">
+    </form>
+  <% end %>
+<% end %>
+</div>
 
 <% if current_user %>
-<a href="/decks/new">Create a new deck</a>
 
+<div id="deckindexbottom">
+  <hr>
+<a href="/decks/new">Create a new deck</a>
+</div>
 <% end %>
