@@ -27,6 +27,8 @@ end
 
 post '/decks' do
 
+  p params
+  puts "\n\n\n\n"
   if params[:private] == "on"
     is_public = false
   else
