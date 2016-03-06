@@ -1,15 +1,14 @@
-<h1>
-  YOU'RE NOW VIEWING DECK: <%= @deck.subject %><br><br>
-  Here are all of the cards:<br>
-</h1>
+<h1>Created new deck: <%= @deck.subject %>!<br></h1>
+<h2>Here are all of the cards:</h2>
 
 <% @deck.cards.each do |card| %>
 Question: <%= card.question %><br>
 Answer: <%= card.answer %><br>
-<a href="/decks/<%= @deck.id %>/cards/<%= card.id %>/edit">edit</a>
+<span style="font-size: .8em">
+<a href="/decks/<%= @deck.id %>/cards/<%= card.id %>/edit">( edit</a> |
 <form action="/decks/<%= @deck.id %>/cards/<%= card.id %>" method="post">
   <input type="hidden" name="_method" value="delete">
-  <input type="submit" value="Delete">
-</form>
+  <input type="submit" value="delete">)
+</form></span><br><br>
 
 <% end %>
