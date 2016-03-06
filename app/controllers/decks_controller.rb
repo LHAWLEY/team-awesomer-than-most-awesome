@@ -11,7 +11,6 @@ end
 get '/decksmostplayed' do
   @sorted_deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
   @deck = Deck.order('id')
-  #@deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
   erb :'decks/index'
 end
 
@@ -27,8 +26,6 @@ end
 
 post '/decks' do
 
-  p params
-  puts "\n\n\n\n"
   if params[:private] == "on"
     is_public = false
   else
