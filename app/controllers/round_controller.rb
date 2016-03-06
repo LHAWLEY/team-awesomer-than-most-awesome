@@ -28,17 +28,26 @@ post '/rounds/:id/check_answer' do
   round = Round.find(params[:id])
   guess = Guess.find(params[:guess_id])
 
-  if params[:answer] != guess.card.answer
+  correct = (params[:answer] == guess.card.answer)
+
+  if correct == false
     Guess.create({card_id: guess.card_id, round_id: round.id})
   end
 
   @guess = get_guess(round)
   if @guess == nil
     @round = round
-
     erb :'rounds/done'
   else
-    erb :'rounds/showcard'
+    if correct == true
+
+      @guess
+      erb :'rounds/showcard-correct'
+    else
+      @taco = guess.card.answer
+      @guess
+      erb :'rounds/showcard-incorrect'
+    end
   end
 
 end

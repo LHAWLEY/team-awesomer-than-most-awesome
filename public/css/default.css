@@ -153,3 +153,7 @@ display: inline-block;
   background-color: #EEEEEE;
   border-radius: 10px;
 }
+
+#incorrect {
+  color: #CC0000;
+}
