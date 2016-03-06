@@ -1,6 +1,6 @@
 #header {
   position: relative;
-  height: 150px;
+  height: 100px;
   width: 100%;
 }
 
@@ -43,12 +43,27 @@
   color: #FFFFFF;
 }
 
-li:before {
+.linav li:before {
   content: "|";
   padding-right: 5px;
   font-size: 1.5em;
   color: #DDDDDD;
   vertical-align: middle;
+}
+
+#userli {
+  margin: 0px 20px 0px 0px;
+  padding: 5px;
+  border-radius: 3px;
+  position: relative;
+  display: inline-block;
+  color: #FFFFFF;
+  background-color: #AAAAFF;
+}
+
+#userlink {
+  text-decoration: none;
+  font-family: Arial;
 }
 
 #loginstatus {
@@ -71,4 +86,70 @@ li:before {
 
 .linav > a {
   color: hotpink;
+}
+
+.deckcreated {
+  color: #888888;
+  font-size: .8em;
+}
+
+.userdeckname {
+  color: #000000;
+  font-weight: bold;
+  size: 1.4em;
+}
+
+.thead {
+  border-bottom: 2px dotted gray;
+}
+
+td {
+    padding: 10px;
+}
+
+.usersectiontitle {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+#statsimg {
+  width: 400px;
+  height: 100px;
+}
+
+#createdimg {
+display: inline-block;
+  width: 122px;
+  /*height: 90px;*/
+}
+
+#createdtext {
+  position: relative;
+  top: -22px;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 2.2em;
+  color: #666666;
+}
+
+#userleft {
+  position: relative;
+  width: 48%;
+  float: left;
+}
+
+#userright {
+    position: relative;
+    width: 48%;
+    float: right;
+}
+
+#acctimg {
+  height: 40px;
+}
+
+#stattable {
+  background-color: #EEEEEE;
+  border-radius: 10px;
 }

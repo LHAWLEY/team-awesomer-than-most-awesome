@@ -1,6 +1,7 @@
 get '/' do
   if session[:user_id]
     @user = get_user_by_id(session[:user_id])
+    puts "\n\n\n\n\n\n\n\nNO UID!"
     erb :'users/show'
   else
     redirect '/login'

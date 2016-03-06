@@ -1,5 +1,19 @@
 <form action="/decks/<%= @deck.id %>" method="post">
   <input type="hidden" name="_method" value="put">
-  <input type="text" name="subject" value="<%= @deck.subject %>">
+  Deck Title: <input type="text" name="subject" value="<%= @deck.subject %>">
+<br><br>
+  <% @deck.cards.each do |card| %>
+
+  <input type="text" name="question[<%=card.id%>]" value="<%=card.question%>">
+  <input type="text" name="answer[<%=card.id%>]" value="<%=card.answer%>">
+<br>
+  <% end %>
+
+  <br><br>
+  Add New question:<br>
+  <input type="text" name="newquestion" value="">
+  <input type="text" name="newanswer" value="">
+  <br>
   <input type="submit" value="Save Changes">
 </form>
+

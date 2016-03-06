@@ -1,5 +1,32 @@
-<h1 washingmachine="4">This is the user page! W00t!</h1>
-<a href="/logout">Logout!</a>
 
-Welcome <%= @user.username %>
+<img id="acctimg" src="/images/account.png">
+<h2></h2>
+<div id="userleft">
+  <br><br>
+  <img id="statsimg" src="/images/stats_logo_lg.jpg">
+  <hr width="75%" align="left">
+  <!-- <span class="usersectiontitle">Your stats:</span> -->
+  <table id="stattable">
+  <tr><td class="thead">Deck Name</td><td class="thead">First Guess</td><td class="thead">Date Played</td></tr>
+  <% current_user.rounds.each do |round| %>
+  <tr>
+  <td><%= round.deck.subject %></td>
+  <td><%= first_try(round) %> / <%=round.deck.cards.count%> </td>
+  <td><span class="deckcreated"><%= round.created_at %></span></td>
+  </tr>
+  <% end %>
+  </table>
+</div>
+<div id="userright">
+  <br><br>
+  <img id="createdimg" src="/images/create.jpg">
+  <span id="createdtext">YOUR DECKS</span>
+  <hr width="75%" align="left">
 
+  <ul>
+  <% current_user.decks.each do |deck| %>
+  <li><span class="userdeckname"><a href="/decks/<%=deck.id%>/edit"><%= deck.subject %></a></span>
+    <span class="deckcreated"> Created <%= deck.created_at %></span></li>
+  <% end %>
+  </ul>
+</div>

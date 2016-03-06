@@ -11,7 +11,9 @@
         <div id="nav">
           <ul id="navul">
           <% if current_user %>
-            <li class="linav"><a href="/">Home</a></li>
+            <li id="userli"><a id="userlink" href="/users/<%= current_user.id %>">
+              <%= current_user.username.capitalize %></a></li>
+            <li class="linav"><a href="/">Home</a>  |</li>
             <li class="linav"><a href="/logout">Logout</a></li>
           <% else %>
             <li class="linav"><a href="/">Home</a></li>

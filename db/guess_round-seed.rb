@@ -4,7 +4,7 @@ module GuessRoundSeed
   end
 
   3.times do |x|
-    5.times do |round|
+    3.times do |round|
       deck = Deck.find(x+1)
       deck.cards.each do |card|
         Guess.create({card_id: card.id, round_id: round+1, status: true})
