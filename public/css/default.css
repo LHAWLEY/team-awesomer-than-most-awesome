@@ -154,6 +154,7 @@ display: inline-block;
 }
 
 #stattable {
+  width: 80%;
   background-color: #EEEEEE;
   border-radius: 10px;
 }
@@ -256,7 +257,7 @@ form {
 #question {
   width: 525px;
   position: absolute;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   top: 250px;
   left: 50px;
@@ -265,7 +266,7 @@ form {
 #questioninc {
   width: 525px;
   position: absolute;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   top: 360px;
   left: 50px;
@@ -274,7 +275,7 @@ form {
 #questioncor {
   width: 525px;
   position: absolute;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: bold;
   top: 350px;
   left: 50px;
