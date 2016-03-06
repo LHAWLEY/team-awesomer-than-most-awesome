@@ -33,6 +33,9 @@
 
 List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newest</a> <br><br><br>
 
+<% if @deck == nil || public_decks == nil %>
+  <h2>Nothing matched your search!</h2>
+<% else %>
 
 <div id="decksleft">
 <% public_decks[0..(public_decks.length/2)].each_with_index do |deck,i| %>
@@ -49,7 +52,7 @@ List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newe
   <br> on <%= shorten_date(deck) %></span>
  <br><br>
 
-<% end %>
+<%end%>
 </div>
 
 <div id="decksright">
@@ -68,6 +71,8 @@ List By: <a href="/decksmostplayed">Most Popular</a> <a href="/decksnewest">Newe
  <br><br>
   <% end %>
 </div>
+
+<%end%>
 
 <% if current_user %>
 
