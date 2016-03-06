@@ -166,3 +166,44 @@ display: inline-block;
   position: relative;
   clear: both;
 }
+
+#decktitle {
+  font-size: 1.6em;
+}
+
+input[type="submit"], input[type="submit"]:focus, input[type="submit"]:active,
+button, button:focus, button:active {
+    /* Remove all decorations to look like normal text */
+    background: none;
+    border: none;
+    display: inline;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    outline-offset: 0;
+    /* Additional styles to look like a link */
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.editdel {
+  position: relative;
+  left: 25px;
+  font-size: .8em;
+  color: #888888;
+  text-decoration: none;
+}
+
+form {
+  display: inline-block;
+}
+
+#createdeck {
+  text-decoration: underline;
+}
