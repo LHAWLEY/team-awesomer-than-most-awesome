@@ -1,5 +1,10 @@
 <h2>You are about to play the <%= @round.deck.subject %> deck!</h2>
 <br>
+You've played this round <%= played_rounds(session[:user_id])[0] %> times.
+<% if played_rounds(session[:user_id])[1] != nil %>
+<br><br>You played this deck last on <%= played_rounds(session[:user_id])[1] %>
+<% end %>
+<br><br>
 
-<a href="/rounds/<%= @round.id %>/firstcard">Start the flashcards!</a>
+<a href="/rounds/<%= @round.id %>/firstcard"><span style="font-size: 2em;">Start!</span></a>
 
