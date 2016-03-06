@@ -59,7 +59,7 @@ module DeckSeed
   disney_characters.cards.create!(answer: "Blue Fairy", question: "When you wish upon a star, this female appears")
   disney_characters.cards.create!(answer: "Monstro", question: "The whale that swallowed the puppet")
   disney_characters.cards.create!(answer: "Dumbo", question: "The flying elephant")
-  disney_characters.cards.create!(answer: "Bambi", question: "The faun whose mother was killed")
+  disney_characters.cards.create!(answer: "Bambi", question: "The fawn whose mother was killed")
   disney_characters.cards.create!(answer: "Thumper", question: "The rabbit named for his habit")
 end
 

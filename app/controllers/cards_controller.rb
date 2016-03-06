@@ -24,11 +24,9 @@ end
 post '/decks/:deck_id/cards' do
 
   @deck = Deck.find(params[:deck_id])
-  p @deck
-  puts "asdfasdf\n\n\n"
+
   @card = @deck.cards.new(params[:card])
-  p @card
-  puts "123123\n\n"
+
   if @card.save
     if params[:commit] == "Next Card"
       redirect "/decks/#{@deck.id}/cards/new"
