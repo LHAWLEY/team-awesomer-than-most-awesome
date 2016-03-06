@@ -252,3 +252,39 @@ form {
   text-decoration: none;
   font-size: 1.5em;
 }
+
+#question {
+  width: 525px;
+  position: absolute;
+  font-size: 2em;
+  font-weight: bold;
+  top: 250px;
+  left: 50px;
+}
+
+#questioninc {
+  width: 525px;
+  position: absolute;
+  font-size: 2em;
+  font-weight: bold;
+  top: 360px;
+  left: 50px;
+}
+
+#questioncor {
+  width: 525px;
+  position: absolute;
+  font-size: 2em;
+  font-weight: bold;
+  top: 350px;
+  left: 50px;
+}
+
+#cardimgdiv {
+  position: relative;
+}
+
+#cardimg {
+  width: 600px;
+  box-shadow: 10px 10px 5px #888888;
+}
