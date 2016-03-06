@@ -9,12 +9,14 @@ post '/decks/search' do
 end
 
 get '/decksmostplayed' do
-  @deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
+  @sorted_deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
+  @deck = Deck.order('id')
+  #@deck = Deck.all.sort {|a,b| b.rounds.count <=> a.rounds.count }
   erb :'decks/index'
 end
 
 get '/decksnewest' do
-  @deck = Deck.all.sort {|a,b| b.updated_at <=> a.updated_at }
+  @deck = Deck.order('updated_at desc')
   erb :'decks/index'
 end
 
@@ -25,8 +27,13 @@ end
 
 post '/decks' do
 
-  #below works with properly formatted params in HTML form
-  @deck = Deck.new(subject: params[:subject], creator_id: session[:user_id]) #create new deck
+  if params[:private] == "on"
+    is_public = false
+  else
+    is_public = true
+  end
+
+  @deck = Deck.new(subject: params[:subject], creator_id: session[:user_id], is_public: is_public) #create new deck
 
   if @deck.save #saves new deck or returns false if unsuccessful
     redirect "/decks/#{@deck.id}/cards/new" #links back to decks index page

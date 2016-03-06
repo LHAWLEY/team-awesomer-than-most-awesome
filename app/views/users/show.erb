@@ -7,11 +7,12 @@
   <hr width="75%" align="left">
   <!-- <span class="usersectiontitle">Your stats:</span> -->
   <table id="stattable">
-  <tr><td class="thead">Deck Name</td><td class="thead">First Guess</td><td class="thead">Date Played</td></tr>
+  <tr><td class="thead">Deck Name</td><td class="thead">First Guess</td><td class="thead">Total Guesses</td><td class="thead">Date Played</td></tr>
   <% current_user.rounds.each do |round| %>
   <tr>
   <td><%= round.deck.subject %></td>
   <td><%= first_try(round) %> / <%=round.deck.cards.count%> </td>
+  <td><%= round.guesses.count %></td>
   <td><span class="deckcreated"><%= round.created_at %></span></td>
   </tr>
   <% end %>
@@ -23,10 +24,20 @@
   <span id="createdtext">YOUR DECKS</span>
   <hr width="75%" align="left">
 
+  <span>Public decks</span>
   <ul>
-  <% current_user.decks.each do |deck| %>
-  <li><span class="userdeckname"><a href="/decks/<%=deck.id%>/edit"><%= deck.subject %></a></span>
-    <span class="deckcreated"> Created <%= deck.created_at %></span></li>
-  <% end %>
+    <% public_decks = current_user.decks.where(is_public: true) %>
+    <% public_decks.each do |deck| %>
+    <li><span class="userdeckname"><a href="/decks/<%=deck.id%>/edit"><%= deck.subject %></a></span>
+      <span class="deckcreated"> Created <%= deck.created_at %></span></li>
+    <% end %>
+  </ul>
+  <span>Private decks</span>
+  <ul>
+    <% private_decks = current_user.decks.where(is_public: false) %>
+    <% private_decks.each do |deck| %>
+    <li><span class="userdeckname"><a href="/decks/<%=deck.id%>/edit"><%= deck.subject %></a></span>
+      <span class="deckcreated"> Created <%= deck.created_at %></span></li>
+    <% end %>
   </ul>
 </div>
