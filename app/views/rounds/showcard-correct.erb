@@ -1,13 +1,20 @@
 <h2>Playing <%= @guess.round.deck.subject %> deck!</h2>
 
-Your last answer was correct!<br><br>
+Your last answer was <span style="color: green;">correct!</span><br><br>
 
-Question: <%= @guess.card.question %><br>
-Answer: <%= @guess.card.answer %><br>
+<h2>Playing <%= @guess.round.deck.subject %> deck!</h2>
 
+<div id="cardimgdiv">
+  <img id="cardimg" src="/images/card.png">
+</div>
+<div id="questioncor">
+  <%= @guess.card.question %><br>
+</div>
+<br><br>
 <form method="post" action="/rounds/<%= @guess.round_id %>/check_answer">
   <input type="hidden" name="guess_id" value="<%= @guess.id %>">
   <input type="text" name="answer">
   <input type="submit" value="Answer Question">
 </form>
-
+<br>
+<span style="opacity: 0.2;">Answer: <%= @guess.card.answer %><br></span>

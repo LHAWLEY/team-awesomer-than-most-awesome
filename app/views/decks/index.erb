@@ -8,9 +8,14 @@
   </div>
 </div>
 <div id="createsection">
-
-<a href="/decks/new"><img id="createimgmain" src="/images/create.jpg"><span id="createdecktop">Create your own!</span></a>
+<% if current_user %>
+  <a href="/decks/new">
+<% else %>
+  <a href="/login">
+<% end %>
+<img id="createimgmain" src="/images/create.jpg"><span id="createdecktop">Create your own!</span></a>
 </div>
+
 
 <hr style="clear: both; opacity: 0;">
 <br>
