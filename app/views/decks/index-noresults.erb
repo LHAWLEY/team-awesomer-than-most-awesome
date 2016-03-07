@@ -1,0 +1,33 @@
+
+<div id="searchsection">
+  <img id="searchimg" src="/images/search.jpg">
+  <div id="searchfor"><form method="post" action="/decks/search">
+  <input type="text" name="search">
+  <input type="submit" value="Search!">
+  </form>
+  </div>
+</div>
+<div id="createsection">
+<% if current_user %>
+  <a href="/decks/new">
+<% else %>
+  <a href="/login">
+<% end %>
+<img id="createimgmain" src="/images/create.jpg"><span id="createdecktop">Create your own!</span></a>
+</div>
+
+
+<hr style="clear: both; opacity: 0;">
+<br>
+
+  <h2>Nothing matched your search!</h2>
+
+
+<% if current_user %>
+
+<div id="deckindexbottom">
+  <hr>
+<a href="/decks/new"><span id="createdeck">Create a new deck</span></a>
+</div>
+<% end %>
+

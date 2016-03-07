@@ -36,7 +36,7 @@
   <ul>
     <% private_decks = current_user.decks.where(is_public: false) %>
     <% private_decks.each do |deck| %>
-    <li><span class="userdeckname"><a href="/decks/<%=deck.id%>/edit"><%= deck.subject %></a></span>
+    <li><span class="userdeckname"><a href=<%= "/decks/#{ deck.id }/startround" %>><%= deck.subject %></a> <a href="/decks/<%=deck.id%>/edit">(edit)</a></span>
       <span class="deckcreated"> Created <%= deck.created_at %></span></li>
     <% end %>
   </ul>
